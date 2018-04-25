@@ -35,3 +35,6 @@ public class Notice : StateMachineBehaviour {
 	}
 
 }
+
+//a este objeto voy a intentar llamarle le metodo de GetSquished, si no hay ese metodo, lo ignora
+//other.gameObject.SendMessage("GetSquished", SendMessageOptions.DontRequireReceiver);
