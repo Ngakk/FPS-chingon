@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Mangos {
 	public class GameManager : MonoBehaviour {
-		public Mangos.GameState gameState = GameState.mainMenu;
+		public Mangos.GameState gameState;
 		void Awake(){
 			StaticManager.gameManager = this;
 		}

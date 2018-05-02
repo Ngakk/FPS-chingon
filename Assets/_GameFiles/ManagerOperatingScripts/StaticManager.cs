@@ -13,7 +13,20 @@ namespace Mangos {
 		running,
 		loading
 	}
+	
+	public enum Weapon{
+		sniper,
+		granade,
+		axe
+	}
 
+	public struct HitData{
+		public Weapon weapon;
+		public Vector3 shooterPos;
+		public Vector3 hitPos;
+		public float power;
+	}
+	
 	public class StaticManager {
 		public static AppManager appManager;
 		public static InputManager inputManager;
