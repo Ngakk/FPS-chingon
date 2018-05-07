@@ -9,6 +9,7 @@ namespace Mangos {
 		public Camera cam;
 		//sniper stats
 		public float sniperPower;
+		public Weapon weaponState = Weapon.sniper;
 	
 		// Use this for initialization
 		void Start () {
@@ -20,10 +21,43 @@ namespace Mangos {
 		void Update () {
 			
 		}
+
+		//Weapon change
+		public void ChangeWeapon(){
+			switch (weaponState) {
+			case Weapon.sniper:
+				anim.SetTrigger ("SniperToLauncher");
+				break;
+			case Weapon.granade:
+				anim.SetTrigger ("LauncherToAxe");
+				break;
+			case Weapon.axe:
+				anim.SetTrigger ("AxeToSniper");
+				break;
+			default:
+				break;
+			}
+		}
+
+		public void SetWeapon(int s){
+			switch (s) {
+			case 0:
+				weaponState = Weapon.sniper;
+				break;
+			case 1:
+				weaponState = Weapon.granade;
+				break;
+			case 2:
+				weaponState = Weapon.axe;
+				break;
+			default :
+				break;
+			}
+		}
 		
 		//Sniper Shoot
 		public void StartShootAnim(){
-			anim.SetBool("Shoot", true);
+			anim.SetTrigger("ShootSniper");
 		}
 		
 		public void ShootSniper(){
@@ -48,7 +82,12 @@ namespace Mangos {
 		}
 		
 		public void EndSniper(){
-			anim.SetBool("Shoot", false);
+			
+		}
+
+		//Granade Launcher Shoot
+		public void StartGranadeAnim(){
+			anim.SetTrigger ("ShootGranada");
 		}
 	}
 }
