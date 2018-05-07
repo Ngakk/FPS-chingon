@@ -9,14 +9,11 @@ namespace Mangos {
 		public Camera cam;
 		//sniper stats
 		public float sniperPower;
-		
-		void Awake(){
-			StaticManager.inputManager.weaponController = this;
-		}
 	
 		// Use this for initialization
 		void Start () {
 			anim = GetComponent<Animator>();
+			StaticManager.inputManager.weaponController = this;
 		}
 		
 		// Update is called once per frame

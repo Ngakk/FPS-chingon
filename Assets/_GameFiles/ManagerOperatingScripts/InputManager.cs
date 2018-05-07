@@ -6,7 +6,6 @@ namespace Mangos {
 	public class InputManager : MonoBehaviour {
 		
 		public WeaponController weaponController;
-
 		void Awake(){
 			StaticManager.inputManager = this;
 		}
@@ -16,7 +15,6 @@ namespace Mangos {
 			case GameState.mainGame:
 				if(Input.GetMouseButtonDown(0))
 					weaponController.StartShootAnim();
-					
 				break;
 			default:
 				break;
