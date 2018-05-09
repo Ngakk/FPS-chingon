@@ -7,14 +7,18 @@ namespace Mangos {
 		
 		Animator anim;
 		public Camera cam;
+		public GameObject granada;
+		public GameObject granadaSpawnPoint;
 		//sniper stats
 		public float sniperPower;
+		public float granadaPower;
 		public Weapon weaponState = Weapon.sniper;
 	
 		// Use this for initialization
 		void Start () {
 			anim = GetComponent<Animator>();
 			StaticManager.inputManager.weaponController = this;
+			PoolManager.PreSpawn(granada, 5);
 		}
 		
 		// Update is called once per frame
@@ -88,6 +92,11 @@ namespace Mangos {
 		//Granade Launcher Shoot
 		public void StartGranadeAnim(){
 			anim.SetTrigger ("ShootGranada");
+		}
+		
+		public void ShootGranada(){
+			Transform go = PoolManager.Spawn(granada, granadaSpawnPoint.transform.position, Quaternion.identity);
+			go.GetComponent<Rigidbody>().AddForce(cam.transform.forward * granadaPower);
 		}
 	}
 }
