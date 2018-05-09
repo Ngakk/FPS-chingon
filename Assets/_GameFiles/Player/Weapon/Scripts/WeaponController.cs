@@ -96,7 +96,7 @@ namespace Mangos {
 		
 		public void ShootGranada(){
 			Transform go = PoolManager.Spawn(granada, granadaSpawnPoint.transform.position, Quaternion.identity);
-			go.GetComponent<Rigidbody>().AddForce(cam.transform.forward * granadaPower);
+			go.GetComponent<Rigidbody>().AddForce((cam.transform.forward + granadaSpawnPoint.transform.forward).normalized * granadaPower);
 		}
 	}
 }

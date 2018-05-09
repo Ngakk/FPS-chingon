@@ -17,7 +17,16 @@ namespace Mangos{
 		}
 		
 		public void GetHit(HitData hitData){
-			rigi.AddForce((hitData.hitPos - hitData.shooterPos).normalized * hitData.power);
+			switch(hitData.weapon){
+			case Weapon.sniper:
+				rigi.AddForce((hitData.hitPos - hitData.shooterPos).normalized * hitData.power);
+				break;
+			case Weapon.granade:
+				Debug.Log("granadaaa");
+				rigi.AddExplosionForce(hitData.power, hitData.shooterPos, 1.5f);
+				break;
+			}
+			
 		}
 	}
 }
