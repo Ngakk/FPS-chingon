@@ -13,6 +13,9 @@ namespace Mangos {
 		public float sniperPower;
 		public float granadaPower;
 		public Weapon weaponState = Weapon.sniper;
+		public float sniperFirerate, lastSnipershoot;
+		public float launcherFirerate, lastLaunchershoot;
+		public float meleeSwingrate, lastMeleeswing;
 	
 		// Use this for initialization
 		void Start () {
