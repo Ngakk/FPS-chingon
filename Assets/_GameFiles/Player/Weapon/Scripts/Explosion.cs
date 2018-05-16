@@ -9,12 +9,17 @@ namespace Mangos{
 		public float explosionDuration;
 		// Use this for initialization
 		void Start () {
-			Invoke("Expurosion", explosionDuration);
+	
 		}
 		
 		// Update is called once per frame
 		void Update () {
 			
+		}
+		
+		void OnSpawn()
+		{
+			Invoke("Expurosion", explosionDuration);
 		}
 		
 		void OnTriggerEnter(Collider _col){

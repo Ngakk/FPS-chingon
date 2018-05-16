@@ -23,7 +23,7 @@ namespace Mangos{
 				break;
 			case Weapon.granade:
 				Debug.Log("granadaaa");
-				rigi.AddExplosionForce(hitData.power, hitData.shooterPos, 1.5f);
+				rigi.AddForce((hitData.hitPos - hitData.shooterPos) * hitData.power, ForceMode.Impulse);
 				break;
 			}
 			

@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91f292d02518cdc48a49622efce59c1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  power: 2000
+  power: 5
   explosionDuration: 0.1
 --- !u!135 &135641194551529078
 SphereCollider:
@@ -64,5 +64,5 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2
+  m_Radius: 3
   m_Center: {x: 0, y: 0, z: 0}

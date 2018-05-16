@@ -13,9 +13,12 @@ namespace Mangos {
 		public float sniperPower;
 		public float granadaPower;
 		public Weapon weaponState = Weapon.sniper;
-		public float sniperFirerate, lastSnipershoot;
-		public float launcherFirerate, lastLaunchershoot;
-		public float meleeSwingrate, lastMeleeswing;
+		public float sniperFirerate;
+		float lastSnipershoot;
+		public float launcherFirerate;
+		float lastLaunchershoot;
+		public float meleeSwingrate;
+		float lastMeleeswing;
 	
 		// Use this for initialization
 		void Start () {
@@ -64,10 +67,12 @@ namespace Mangos {
 		
 		//Sniper Shoot
 		public void StartShootAnim(){
-			anim.SetTrigger("ShootSniper");
+			if(Time.time > lastSnipershoot + sniperFirerate)
+				anim.SetTrigger("ShootSniper");
 		}
 		
 		public void ShootSniper(){
+			anim.ResetTrigger("ShootSniper");
 			Debug.Log("shoot");
 			RaycastHit hit;
 			
@@ -82,6 +87,8 @@ namespace Mangos {
 				
 				hit.collider.gameObject.SendMessage("GetHit", hitData, SendMessageOptions.DontRequireReceiver);
 			}
+			
+			lastSnipershoot = Time.time;
 		}
 		
 		public void ShootSniperBullet(){
@@ -94,12 +101,40 @@ namespace Mangos {
 
 		//Granade Launcher Shoot
 		public void StartGranadeAnim(){
-			anim.SetTrigger ("ShootGranada");
+			if(Time.time > lastLaunchershoot + launcherFirerate)
+				anim.SetTrigger ("ShootGranada");
 		}
 		
 		public void ShootGranada(){
+			anim.ResetTrigger("ShootGranada");
 			Transform go = PoolManager.Spawn(granada, granadaSpawnPoint.transform.position, Quaternion.identity);
 			go.GetComponent<Rigidbody>().AddForce((cam.transform.forward + granadaSpawnPoint.transform.forward).normalized * granadaPower);
+			
+			lastLaunchershoot = Time.time;
+		}
+		
+		//Ace swing
+		public void StartAxeSwingAnimation(){
+			if(Time.time > lastMeleeswing + meleeSwingrate)
+				anim.SetTrigger("SwingAxe");
+		}
+		
+		public void AxeSwing(){
+			anim.ResetTrigger("SwingAxe");
+			lastMeleeswing = Time.time;
+		}
+		
+		
+		
+		//General animation stuff
+		public void ClearTriggers()
+		{
+			anim.ResetTrigger("SwingAxe");
+			anim.ResetTrigger("ShootGranada");
+			anim.ResetTrigger("ShootSniper");
+			anim.ResetTrigger("AxeToSniper");
+			anim.ResetTrigger("LauncherToAxe");
+			anim.ResetTrigger("SniperToLauncher");
 		}
 	}
 }

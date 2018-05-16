@@ -14,7 +14,6 @@ namespace Mangos {
 		
 		void OnSpawn(){
 			Invoke("SelfDespawn", lifetime);
-			expArea.SetActive(false);
 			gameObject.GetComponentInChildren<MeshRenderer>().enabled = true;
 		}
 		
