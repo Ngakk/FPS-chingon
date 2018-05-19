@@ -6,6 +6,7 @@ namespace Mangos {
 	public class Pomegranate : MonoBehaviour {
 	
 		public GameObject expArea;
+		public GameObject explosionParticle;
 		public float lifetime;
 		bool isUnstable;
 		
@@ -23,6 +24,7 @@ namespace Mangos {
 			CancelInvoke();
 			GetComponent<Rigidbody>().velocity = Vector3.zero;
 			PoolManager.Spawn(expArea, transform.position, Quaternion.identity);
+			PoolManager.Spawn(explosionParticle, transform.position, Quaternion.identity);
 		}
 		
 		void OnCollisionEnter(Collision _col)

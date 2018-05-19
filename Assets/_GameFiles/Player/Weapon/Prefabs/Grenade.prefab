@@ -141,6 +141,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   expArea: {fileID: 1744487169252550, guid: a87d3bd953ca2564f91eda5f1a945781, type: 2}
+  explosionParticle: {fileID: 1131865286389382, guid: ee38f1e8705c2d8429a642fb36e3f20d,
+    type: 2}
   lifetime: 3
 --- !u!135 &135235713798046548
 SphereCollider:
