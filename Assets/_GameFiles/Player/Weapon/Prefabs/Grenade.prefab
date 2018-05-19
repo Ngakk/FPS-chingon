@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4878334121351912}
   - component: {fileID: 54419171286663482}
-  - component: {fileID: 114959149510112780}
   - component: {fileID: 114669273780878638}
   - component: {fileID: 135235713798046548}
   m_Layer: 0
@@ -142,25 +141,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   expArea: {fileID: 1744487169252550, guid: a87d3bd953ca2564f91eda5f1a945781, type: 2}
-  lifetime: 50
---- !u!114 &114959149510112780
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1894104442634302}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e89d6ab491867842878567a5bbc7faf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  lifetime: 3
 --- !u!135 &135235713798046548
 SphereCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1894104442634302}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 18212aeb06e72e14ab1586c379a3fd34, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
