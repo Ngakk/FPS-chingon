@@ -9,10 +9,19 @@ namespace Mangos {
 		public Camera cam;
 		public GameObject granada;
 		public GameObject granadaSpawnPoint;
+		static public AxeCollider axeCollider;
+		public Weapon weaponState = Weapon.sniper;
 		//sniper stats
 		public float sniperPower;
+		public float sniperFirerate;
+		float lastSnipershoot;
+		//Granade launcher stats
 		public float granadaPower;
-		public Weapon weaponState = Weapon.sniper;
+		public float launcherFirerate;
+		float lastLaunchershoot;
+		//Axe stats
+		public float meleeSwingrate;
+		float lastMeleeswing;
 	
 		// Use this for initialization
 		void Start () {
@@ -61,11 +70,12 @@ namespace Mangos {
 		
 		//Sniper Shoot
 		public void StartShootAnim(){
-			anim.SetTrigger("ShootSniper");
+			if(Time.time > lastSnipershoot + sniperFirerate)
+				anim.SetTrigger("ShootSniper");
 		}
 		
 		public void ShootSniper(){
-			Debug.Log("shoot");
+			anim.ResetTrigger("ShootSniper");
 			RaycastHit hit;
 			
 			Ray rayo = cam.ScreenPointToRay(Input.mousePosition);
@@ -79,6 +89,8 @@ namespace Mangos {
 				
 				hit.collider.gameObject.SendMessage("GetHit", hitData, SendMessageOptions.DontRequireReceiver);
 			}
+			
+			lastSnipershoot = Time.time;
 		}
 		
 		public void ShootSniperBullet(){
@@ -91,12 +103,42 @@ namespace Mangos {
 
 		//Granade Launcher Shoot
 		public void StartGranadeAnim(){
-			anim.SetTrigger ("ShootGranada");
+			if(Time.time > lastLaunchershoot + launcherFirerate)
+				anim.SetTrigger ("ShootGranada");
 		}
 		
 		public void ShootGranada(){
+			anim.ResetTrigger("ShootGranada");
+
 			Transform go = PoolManager.Spawn(granada, granadaSpawnPoint.transform.position, Quaternion.identity);
-			go.GetComponent<Rigidbody>().AddForce(cam.transform.forward * granadaPower);
+			go.GetComponent<Rigidbody>().AddForce((Vector3.Lerp(cam.transform.forward, Vector3.up, 0.2f)).normalized * granadaPower);
+			
+			lastLaunchershoot = Time.time;
+		}
+		
+		//Axe swing
+		public void StartAxeSwingAnimation(){
+			if(Time.time > lastMeleeswing + meleeSwingrate){
+				anim.SetTrigger("SwingAxe");
+				axeCollider.StartAxeSwingAnimation();
+			}
+		}
+		
+		public void AxeSwing(){
+			anim.ResetTrigger("SwingAxe");
+			lastMeleeswing = Time.time;
+		}
+		
+		public bool CheckGranadeProximity(){
+			return true;
+		}
+		
+		//General animation stuff
+		public void ClearTriggers()
+		{
+			anim.ResetTrigger("SwingAxe");
+			anim.ResetTrigger("ShootGranada");
+			anim.ResetTrigger("ShootSniper");
 		}
 	}
 }

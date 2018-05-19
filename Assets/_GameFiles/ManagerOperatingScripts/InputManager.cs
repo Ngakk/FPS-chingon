@@ -18,7 +18,7 @@ namespace Mangos {
 			
 				switch (weaponController.weaponState){
 				case Weapon.sniper:
-					if(Input.GetMouseButtonDown(0))
+					if(Input.GetMouseButton(0))
 						weaponController.StartShootAnim();
 					break;
 				case Weapon.granade:
@@ -26,6 +26,8 @@ namespace Mangos {
 						weaponController.StartGranadeAnim();
 					break;
 				case Weapon.axe:
+					if(Input.GetMouseButton(0))
+						weaponController.StartAxeSwingAnimation();
 					break;
 				}
 				break;

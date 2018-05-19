@@ -17,7 +17,8 @@ namespace Mangos {
 	public enum Weapon{
 		sniper,
 		granade,
-		axe
+		axe,
+		homeRun
 	}
 
 	public struct HitData{
