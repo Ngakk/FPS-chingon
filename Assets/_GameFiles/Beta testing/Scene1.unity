@@ -54,10 +54,11 @@ LightmapSettings:
     m_EnableBakedLightmaps: 1
     m_EnableRealtimeLightmaps: 1
   m_LightmapEditorSettings:
-    serializedVersion: 10
+    serializedVersion: 9
     m_Resolution: 2
     m_BakeResolution: 40
-    m_AtlasSize: 1024
+    m_TextureWidth: 1024
+    m_TextureHeight: 1024
     m_AO: 0
     m_AOMaxDistance: 1
     m_CompAOExponent: 1
@@ -121,13 +122,54 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 4543488803986940, guid: 6b56076eec3c48e4f9f7370fb439e420,
     type: 2}
-
   m_PrefabInternal: {fileID: 376594501}
 --- !u!4 &79258508 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4543488803986940, guid: 6b56076eec3c48e4f9f7370fb439e420,
     type: 2}
   m_PrefabInternal: {fileID: 1977624836}
+--- !u!1001 &81387692
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4581192375475038, guid: ae215be30e0f360489c785a849bc44c0, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 99.366196
+      objectReference: {fileID: 0}
+    - target: {fileID: 4581192375475038, guid: ae215be30e0f360489c785a849bc44c0, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.9548019
+      objectReference: {fileID: 0}
+    - target: {fileID: 4581192375475038, guid: ae215be30e0f360489c785a849bc44c0, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 1.1333258
+      objectReference: {fileID: 0}
+    - target: {fileID: 4581192375475038, guid: ae215be30e0f360489c785a849bc44c0, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4581192375475038, guid: ae215be30e0f360489c785a849bc44c0, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4581192375475038, guid: ae215be30e0f360489c785a849bc44c0, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4581192375475038, guid: ae215be30e0f360489c785a849bc44c0, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4581192375475038, guid: ae215be30e0f360489c785a849bc44c0, type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: ae215be30e0f360489c785a849bc44c0, type: 2}
+  m_IsPrefabParent: 0
 --- !u!4 &99892902 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4543488803986940, guid: 6b56076eec3c48e4f9f7370fb439e420,
@@ -320,7 +362,6 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -579,10 +620,10 @@ MonoBehaviour:
   granadaSpawnPoint: {fileID: 1516416638}
   weaponState: 0
   sniperPower: 500
-  sniperFirerate: 0.15
+  sniperFirerate: 0.12
   granadaPower: 500
-  launcherFirerate: 0.6
-  meleeSwingrate: 1
+  launcherFirerate: 0.45
+  meleeSwingrate: 0.8
 --- !u!95 &313440579
 Animator:
   serializedVersion: 3
@@ -3422,7 +3463,6 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: bcbed7902b0cd21419d12f793bab4b01, type: 2}
   m_StaticBatchInfo:
@@ -3673,87 +3713,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6b56076eec3c48e4f9f7370fb439e420, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1860372766
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1860372771}
-  - component: {fileID: 1860372770}
-  - component: {fileID: 1860372769}
-  - component: {fileID: 1860372768}
-  - component: {fileID: 1860372767}
-  m_Layer: 0
-  m_Name: BearerOfScripts
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1860372767
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1860372766}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32fe0c4a3ef26f34698755d7dc0a1cb1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponController: {fileID: 0}
---- !u!114 &1860372768
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1860372766}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e78fd624ff737041a8463a5a8fd50fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameState: 1
---- !u!114 &1860372769
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1860372766}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6322eaa81719f7246a32f4057158f578, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  volumeSFX: 1
-  volumeMusic: 1
-  MasterVolume: 1
---- !u!114 &1860372770
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1860372766}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 729fce6331f8e1f4a8fe47c0f9a522fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1860372771
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1860372766}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 99.366196, y: -0.9548019, z: 1.1333258}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1902142114 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4543488803986940, guid: 6b56076eec3c48e4f9f7370fb439e420,
@@ -4292,7 +4251,6 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: bcbed7902b0cd21419d12f793bab4b01, type: 2}
   m_StaticBatchInfo:
@@ -4436,7 +4394,6 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: bcbed7902b0cd21419d12f793bab4b01, type: 2}
   m_StaticBatchInfo:
