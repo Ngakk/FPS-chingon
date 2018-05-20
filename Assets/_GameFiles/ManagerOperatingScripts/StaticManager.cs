@@ -17,7 +17,8 @@ namespace Mangos {
 	public enum Weapon{
 		sniper,
 		granade,
-		axe
+		axe,
+		homeRun
 	}
 
 	public struct HitData{
@@ -25,6 +26,7 @@ namespace Mangos {
 		public Vector3 shooterPos;
 		public Vector3 hitPos;
 		public float power;
+		public RaycastHit rayHit;
 	}
 	
 	public class StaticManager {
