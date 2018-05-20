@@ -26,6 +26,7 @@ namespace Mangos {
 		public Vector3 shooterPos;
 		public Vector3 hitPos;
 		public float power;
+		public RaycastHit rayHit;
 	}
 	
 	public class StaticManager {

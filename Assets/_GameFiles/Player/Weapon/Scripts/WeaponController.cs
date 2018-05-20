@@ -86,6 +86,7 @@ namespace Mangos {
 				hitData.shooterPos = cam.transform.position;
 				hitData.hitPos = hit.point;
 				hitData.power = sniperPower;
+				hitData.rayHit = hit;
 				
 				hit.collider.gameObject.SendMessage("GetHit", hitData, SendMessageOptions.DontRequireReceiver);
 			}

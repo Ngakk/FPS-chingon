@@ -3,28 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Mangos{
-	public class ParticleDefault : MonoBehaviour {
-	
-		public ParticleSystem ps;
-	
+	public class DefaultPoolItem : MonoBehaviour {
+		
 		public float lifetime;
 		// Use this for initialization
 		void Start () {
-			ps = GetComponent<ParticleSystem>();
+			Invoke("SelfDespawn", lifetime);
 		}
-		
+			
 		void SelfDespawn(){
 			PoolManager.Despawn(gameObject);
 		}
-		
+			
 		void OnDespawn()
 		{
-			ps.Stop();
+	
 		}
-		
+			
 		void OnSpawn(){
 			Invoke("SelfDespawn", lifetime);
-			ps.Play();
+			
 		}
 	}
 }

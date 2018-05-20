@@ -8,7 +8,17 @@ namespace Mangos {
 		public GameObject expArea;
 		public GameObject explosionParticle;
 		public float lifetime;
+		Rigidbody rigi;
 		bool isUnstable;
+		
+		void Start(){
+			PoolManager.PreSpawn(expArea, 5);
+			PoolManager.SetPoolLimit(expArea, 25);
+			PoolManager.PreSpawn(explosionParticle, 10);
+			PoolManager.SetPoolLimit(explosionParticle, 35);
+			
+			rigi = GetComponent<Rigidbody>();
+		}
 		
 		void SelfDespawn(){
 			PoolManager.Despawn(gameObject);
@@ -22,7 +32,7 @@ namespace Mangos {
 		
 		void OnDespawn(){
 			CancelInvoke();
-			GetComponent<Rigidbody>().velocity = Vector3.zero;
+			rigi.velocity = Vector3.zero;
 			PoolManager.Spawn(expArea, transform.position, Quaternion.identity);
 			PoolManager.Spawn(explosionParticle, transform.position, Quaternion.identity);
 		}
@@ -40,10 +50,16 @@ namespace Mangos {
 			{
 			case Weapon.homeRun:
 				isUnstable = true;
-				GetComponent<Rigidbody>().velocity = Vector3.zero;
-				GetComponent<Rigidbody>().AddForce((hitData.hitPos - hitData.shooterPos).normalized * hitData.power, ForceMode.Impulse);
+				rigi.velocity = Vector3.zero;
+				rigi.AddForce((hitData.hitPos - hitData.shooterPos).normalized * hitData.power, ForceMode.Impulse);
 				CancelInvoke();
 				Invoke("SelfDespawn", 10f);
+				break;
+			case Weapon.sniper:
+				SelfDespawn();
+				break;
+			case Weapon.granade:
+				rigi.AddForce((hitData.hitPos - hitData.shooterPos).normalized * hitData.power, ForceMode.Impulse);
 				break;
 			default:
 				break;

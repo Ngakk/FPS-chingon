@@ -28,6 +28,7 @@ namespace Mangos{
 			hitData.shooterPos = gameObject.transform.position;
 			hitData.hitPos = _col.gameObject.transform.position;
 			hitData.power = power;
+			hitData.rayHit = new RaycastHit();	
 				
 			_col.gameObject.SendMessage("GetHit", hitData, SendMessageOptions.DontRequireReceiver);
 		}

@@ -14,6 +14,7 @@ namespace Mangos{
 			hitData.shooterPos = Vector3.zero;
 			hitData.weapon = Weapon.homeRun;
 			hitData.power = power; 
+			hitData.rayHit = new RaycastHit();
 			_col.gameObject.SendMessage("GetHit", hitData, SendMessageOptions.DontRequireReceiver);
 		}
 		
