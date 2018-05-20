@@ -76,6 +76,9 @@ namespace Mangos {
 		
 		public void ShootSniper(){
 			anim.ResetTrigger("ShootSniper");
+			
+			StaticManager.audioManager.PlayGunShot(transform.position);
+			
 			RaycastHit hit;
 			
 			Ray rayo = cam.ScreenPointToRay(Input.mousePosition);
@@ -115,6 +118,8 @@ namespace Mangos {
 			go.GetComponent<Rigidbody>().AddForce((Vector3.Lerp(cam.transform.forward, Vector3.up, 0.2f)).normalized * granadaPower);
 			
 			lastLaunchershoot = Time.time;
+			
+			StaticManager.audioManager.PlayGranadaLauncher(transform.position);
 		}
 		
 		//Axe swing
@@ -128,6 +133,11 @@ namespace Mangos {
 		public void AxeSwing(){
 			anim.ResetTrigger("SwingAxe");
 			lastMeleeswing = Time.time;
+		}
+		
+		
+		public void AxeSound(){
+			StaticManager.audioManager.PlaySwoosh(transform.position);
 		}
 		
 		public bool CheckGranadeProximity(){

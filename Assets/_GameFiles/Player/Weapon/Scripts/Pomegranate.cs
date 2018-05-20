@@ -35,6 +35,7 @@ namespace Mangos {
 			rigi.velocity = Vector3.zero;
 			PoolManager.Spawn(expArea, transform.position, Quaternion.identity);
 			PoolManager.Spawn(explosionParticle, transform.position, Quaternion.identity);
+			StaticManager.audioManager.PlayExplosion(transform.position);
 		}
 		
 		void OnCollisionEnter(Collision _col)
@@ -54,6 +55,7 @@ namespace Mangos {
 				rigi.AddForce((hitData.hitPos - hitData.shooterPos).normalized * hitData.power, ForceMode.Impulse);
 				CancelInvoke();
 				Invoke("SelfDespawn", 10f);
+				StaticManager.audioManager.PlayMetalStrike(transform.position);
 				break;
 			case Weapon.sniper:
 				SelfDespawn();

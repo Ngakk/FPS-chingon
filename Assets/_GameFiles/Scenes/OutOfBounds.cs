@@ -6,6 +6,6 @@ public class OutOfBounds : MonoBehaviour {
 
 	void OnTriggerExit(Collider _col)
 	{
-		Destroy(_col.gameObject);
+		_col.gameObject.SetActive(false);
 	}
 }
