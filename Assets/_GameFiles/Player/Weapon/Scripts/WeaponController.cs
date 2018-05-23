@@ -28,6 +28,7 @@ namespace Mangos {
 			anim = GetComponent<Animator>();
 			StaticManager.inputManager.weaponController = this;
 			PoolManager.PreSpawn(granada, 5);
+			PoolManager.SetPoolLimit (granada, 8);
 		}
 		
 		// Update is called once per frame
