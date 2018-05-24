@@ -31,6 +31,7 @@ namespace Mangos {
 		void Start () {
 			StaticManager.inputManager.weaponController = this;
 			PoolManager.PreSpawn(granada, 5);
+			PoolManager.SetPoolLimit (granada, 8);
 			sniperAmunition = sniperMaxAmunition;
 			launcherAmunition = launcherMaxAmunition;
 			StaticManager.uiController.SetCurrentAmmo(sniperAmunition.ToString());

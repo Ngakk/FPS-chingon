@@ -36,5 +36,6 @@ namespace Mangos {
 		public static AudioManager audioManager;
 		public static UnityStandardAssets.Characters.FirstPerson.FirstPersonController fpcontroller;
 		public static UIcontroller uiController;
-	}
+		public static WeaponController weaponController;
+
 }
