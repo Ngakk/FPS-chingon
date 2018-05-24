@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 using UnityStandardAssets.Utility;
@@ -40,7 +40,42 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private float m_StepCycle;
         private float m_NextStep;
         private bool m_Jumping;
-        private AudioSource m_AudioSource;
+	    private AudioSource m_AudioSource;
+        
+	    //CameraShake
+	    public float trauma;
+	    public float traumaCureRate;
+	    public float maxYaw;
+	    public float maxPitch;
+	    public float maxRoll;
+	    public float maxOffset;
+	    float preShakex, preShakey;
+	    Quaternion preShakeQuat;
+	    Quaternion shaked;
+	    
+	    public void AddTrauma(float _t)
+	    {
+	    			
+		    if(trauma < 0)
+			    trauma = 0;
+		    trauma += _t;
+		    Debug.Log("Added " + _t + " trauma");
+	    }
+	    
+	    public void ShakeCamera(){
+
+			float yaw, pitch, roll, offsetX, offsetY, offsetZ;
+			
+			yaw = maxYaw * GetShake() * Random.Range(-1, 1);
+			pitch = maxPitch * GetShake() * Random.Range(-1, 1);
+			roll = maxRoll * GetShake() * Random.Range(-1, 1);
+		    
+		    m_Camera.transform.Rotate(yaw, pitch, roll);
+	    }
+	
+	    public float GetShake(){
+		    return trauma*trauma;
+	    }
 
         // Use this for initialization
         private void Start()
@@ -54,14 +89,19 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_NextStep = m_StepCycle/2f;
             m_Jumping = false;
             m_AudioSource = GetComponent<AudioSource>();
-			m_MouseLook.Init(transform , m_Camera.transform);
+	        m_MouseLook.Init(transform , m_Camera.transform);
+			
+	        preShakex = transform.rotation.eulerAngles.x;
+	        preShakey = m_Camera.transform.rotation.eulerAngles.y;
+	        preShakeQuat = m_Camera.transform.rotation;
         }
 
 
         // Update is called once per frame
         private void Update()
-        {
-            RotateView();
+	    {
+		    RotateView();
+		    ShakeCamera();
             // the jump state needs to read here to make sure it is not missed
             if (!m_Jump)
             {
@@ -80,7 +120,17 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 m_MoveDir.y = 0f;
             }
 
-            m_PreviouslyGrounded = m_CharacterController.isGrounded;
+	        m_PreviouslyGrounded = m_CharacterController.isGrounded;
+            
+		    //CameraShake
+		    if(trauma > 0)
+	    		trauma -= traumaCureRate * Time.deltaTime;
+			
+		
+	        if(Input.GetKeyDown(KeyCode.T))
+	        {
+		        AddTrauma(0.2f);
+	        }
         }
 
 
@@ -237,8 +287,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
 
         private void RotateView()
-        {
-            m_MouseLook.LookRotation (transform, m_Camera.transform);
+	    {
+		    m_Camera.transform.rotation = preShakeQuat;
+		    m_MouseLook.LookRotation(transform, m_Camera.transform);
+		    preShakeQuat = m_Camera.transform.rotation;
         }
 
 

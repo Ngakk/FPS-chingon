@@ -7,6 +7,7 @@ namespace Mangos{
 	
 		public float power;
 		public float explosionDuration;
+		public GameObject playah;
 		// Use this for initialization
 		void Start () {
 	
@@ -21,6 +22,7 @@ namespace Mangos{
 		{
 			Invoke("Expurosion", explosionDuration);
 		}
+
 		
 		void OnTriggerEnter(Collider _col){
 			Mangos.HitData hitData;
@@ -35,6 +37,9 @@ namespace Mangos{
 		
 		void Expurosion(){
 			PoolManager.Despawn(gameObject);
+			playah.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().AddTrauma(
+				(playah.transform.position - transform.position).magnitude
+			);
 		}
 	}
 }
