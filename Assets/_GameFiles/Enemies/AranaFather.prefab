@@ -457,6 +457,8 @@ GameObject:
   - component: {fileID: 4162730990668512}
   - component: {fileID: 195281145656002694}
   - component: {fileID: 54435339423685072}
+  - component: {fileID: 135749585343011912}
+  - component: {fileID: 114775491711110852}
   m_Layer: 0
   m_Name: AranaFather
   m_TagString: Untagged
@@ -617,7 +619,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1752464110777750}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.891, y: 0.2, z: 1.031}
+  m_LocalPosition: {x: -1.83, y: 0.13, z: 1.031}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4225064157396376}
@@ -1699,12 +1701,12 @@ Rigidbody:
   m_GameObject: {fileID: 1752464110777750}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Drag: Infinity
+  m_AngularDrag: Infinity
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 84
   m_CollisionDetection: 0
 --- !u!64 &64194399140944528
 MeshCollider:
@@ -1749,6 +1751,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 341ce83936c46734bab3cb092d721804, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114775491711110852
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1752464110777750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97dce62105e5e4f4fa59423936662c5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!135 &135749585343011912
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1752464110777750}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0.18, z: 0}
 --- !u!195 &195281145656002694
 NavMeshAgent:
   m_ObjectHideFlags: 1
