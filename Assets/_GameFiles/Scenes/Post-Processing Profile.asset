@@ -109,12 +109,12 @@ MonoBehaviour:
         texture: {fileID: 0}
         intensity: 3
   colorGrading:
-    m_Enabled: 1
+    m_Enabled: 0
     m_Settings:
       tonemapping:
-        tonemapper: 1
-        neutralBlackIn: 0.02
-        neutralWhiteIn: 10
+        tonemapper: 2
+        neutralBlackIn: 0.1
+        neutralWhiteIn: 10.6
         neutralBlackOut: 0
         neutralWhiteOut: 10
         neutralWhiteLevel: 5.3
@@ -138,9 +138,9 @@ MonoBehaviour:
           power: {r: 1, g: 1, b: 1, a: 0}
           offset: {r: 1, g: 1, b: 1, a: 0}
         linear:
-          lift: {r: 0.8273019, g: 0.6546052, b: 1, a: 0}
-          gamma: {r: 0.8347052, g: 1, b: 0.98426795, a: 0}
-          gain: {r: 0.77868915, g: 1, b: 0.62028277, a: 0}
+          lift: {r: 0.96322185, g: 0.9837168, b: 1, a: 0}
+          gamma: {r: 0.894685, g: 1, b: 0.90988576, a: 0}
+          gain: {r: 0.80194706, g: 0.8403487, b: 1, a: 0}
       curves:
         master:
           curve:
