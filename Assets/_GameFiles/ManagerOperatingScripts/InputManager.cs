@@ -13,7 +13,7 @@ namespace Mangos {
 		void Update(){
 			switch (StaticManager.gameManager.gameState) {
 			case GameState.mainGame:
-				if(Input.GetKeyDown(KeyCode.Y))
+				if(Input.GetKeyDown(KeyCode.Q))
 					weaponController.ChangeWeapon();
 			
 				switch (weaponController.weaponState){
@@ -29,6 +29,10 @@ namespace Mangos {
 					if(Input.GetMouseButton(0))
 						weaponController.StartAxeSwingAnimation();
 					break;
+				}
+				if(Input.GetKeyDown(KeyCode.R))
+				{
+					weaponController.StartReload();
 				}
 				break;
 			default:

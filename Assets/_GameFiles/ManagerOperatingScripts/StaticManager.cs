@@ -34,6 +34,7 @@ namespace Mangos {
 		public static InputManager inputManager;
 		public static GameManager gameManager;
 		public static AudioManager audioManager;
-		public static TraumaHolder traumaHolder;
+		public static UnityStandardAssets.Characters.FirstPerson.FirstPersonController fpcontroller;
+		public static UIcontroller uiController;
 	}
 }

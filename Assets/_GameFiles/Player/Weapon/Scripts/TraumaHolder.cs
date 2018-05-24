@@ -8,7 +8,7 @@ namespace Mangos{
 		// Awake is called when the script instance is being loaded.
 		protected void Awake()
 		{
-			StaticManager.traumaHolder = this;
+			StaticManager.fpcontroller = GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>();
 		}
 	}
 }

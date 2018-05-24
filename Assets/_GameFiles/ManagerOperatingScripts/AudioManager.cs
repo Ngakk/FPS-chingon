@@ -9,7 +9,8 @@ namespace Mangos {
 		granadeLauncher,
 		explosion,
 		swoosh,
-		metalStrike
+		metalStrike,
+		emptyShoot
 	}
 	
 	
@@ -67,6 +68,9 @@ namespace Mangos {
 		}
 		public void PlayMetalStrike(Vector3 pos){
 			PoolManager.Spawn(sounds[(int)soundIndx.metalStrike], pos, Quaternion.identity);
+		}
+		public void PlayEmptyShoot(Vector3 pos){
+			PoolManager.Spawn(sounds[(int)soundIndx.emptyShoot], pos, Quaternion.identity);
 		}
 	}
 }

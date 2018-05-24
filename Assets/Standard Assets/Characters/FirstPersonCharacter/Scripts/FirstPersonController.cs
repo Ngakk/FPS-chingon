@@ -53,13 +53,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
 	    Quaternion preShakeQuat;
 	    Quaternion shaked;
 	    
+	    
 	    public void AddTrauma(float _t)
 	    {
-	    			
 		    if(trauma < 0)
 			    trauma = 0;
 		    trauma += _t;
-		    Debug.Log("Added " + _t + " trauma");
+		    Debug.Log("Added " + _t + " trauma to " + gameObject.GetInstanceID());
 	    }
 	    
 	    public void ShakeCamera(){
@@ -75,6 +75,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
 	
 	    public float GetShake(){
 		    return trauma*trauma;
+	    }
+	    
+	    void Awake()
+	    {
+	    	
 	    }
 
         // Use this for initialization
@@ -123,8 +128,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
 	        m_PreviouslyGrounded = m_CharacterController.isGrounded;
             
 		    //CameraShake
-		    if(trauma > 0)
-	    		trauma -= traumaCureRate * Time.deltaTime;
+	    	trauma -= traumaCureRate * Time.deltaTime;
+	    	
+	    	if(trauma < 0)
+	    		trauma = 0;
 			
 		
 	        if(Input.GetKeyDown(KeyCode.T))

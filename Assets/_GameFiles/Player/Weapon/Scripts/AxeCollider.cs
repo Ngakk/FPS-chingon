@@ -48,5 +48,9 @@ namespace Mangos {
 			hitData.rayHit = new RaycastHit();
 			_col.gameObject.SendMessage("GetHit", hitData, SendMessageOptions.DontRequireReceiver);
 		}
+		
+		public void ClearShooters(){
+			
+		}
 	}
 }
