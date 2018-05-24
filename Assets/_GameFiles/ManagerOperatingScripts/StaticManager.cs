@@ -28,14 +28,16 @@ namespace Mangos {
 		public float power;
 		public RaycastHit rayHit;
 	}
-	
-	public class StaticManager {
-		public static AppManager appManager;
-		public static InputManager inputManager;
-		public static GameManager gameManager;
-		public static AudioManager audioManager;
-		public static UnityStandardAssets.Characters.FirstPerson.FirstPersonController fpcontroller;
-		public static UIcontroller uiController;
-		public static WeaponController weaponController;
+
+    public class StaticManager
+    {
+        public static AppManager appManager;
+        public static InputManager inputManager;
+        public static GameManager gameManager;
+        public static AudioManager audioManager;
+        public static UnityStandardAssets.Characters.FirstPerson.FirstPersonController fpcontroller;
+        public static UIcontroller uiController;
+        public static WeaponController weaponController;
+    }
 
 }
