@@ -1,8 +1,13 @@
 fileFormatVersion: 2
 guid: c0bde229e3341b344b9d5d27dc711990
+<<<<<<< HEAD
 timeCreated: 1527048665
 licenseType: Free
 DefaultImporter:
+=======
+DefaultImporter:
+  externalObjects: {}
+>>>>>>> CameraShake
   userData: 
   assetBundleName: 
   assetBundleVariant: 
