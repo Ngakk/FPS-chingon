@@ -510,7 +510,7 @@ GameObject:
   - component: {fileID: 135692238617354438}
   - component: {fileID: 114576171823575238}
   m_Layer: 0
-  m_Name: AranaFather 1
+  m_Name: AranaFather
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

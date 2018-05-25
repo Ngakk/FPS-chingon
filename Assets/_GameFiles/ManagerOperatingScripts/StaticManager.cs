@@ -38,6 +38,7 @@ namespace Mangos {
         public static UnityStandardAssets.Characters.FirstPerson.FirstPersonController fpcontroller;
         public static UIcontroller uiController;
         public static WeaponController weaponController;
+        public static WinByMassacre winBoxes;
     }
 
 }

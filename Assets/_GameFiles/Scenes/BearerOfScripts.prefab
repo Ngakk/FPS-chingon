@@ -76,7 +76,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b1a0c8c5434041345a6ab8a7bdbf1d5e, type: 3}
   - {fileID: 8300000, guid: cea215e7ef0cffe44a0a7a3569717aff, type: 3}
   - {fileID: 8300000, guid: 918ebfc9214efb8409432c1ba136715a, type: 3}
-  maxSimultaneousClip: 1e0000001400000014000000020000000600000014000000
+  - {fileID: 8300000, guid: 7003a83aa6c5bec4184313705c530119, type: 3}
+  - {fileID: 8300000, guid: 00936799a4e88f84ca83512ed3ec9ccd, type: 3}
+  - {fileID: 8300000, guid: 2fcb88d5c5397f94984426a9017aa3c0, type: 3}
+  - {fileID: 8300000, guid: d1682fdcbdaf61547ade244ee6b8ef39, type: 3}
+  maxSimultaneousClip: 1e000000140000001400000002000000060000001400000014000000280000002800000028000000
   soundMaker: {fileID: 1324387903248332, guid: 1fd72d311ab17504fa34544fbbe76db6, type: 2}
   maxSimultaneousSounds: 10
 --- !u!114 &114669737304069936
