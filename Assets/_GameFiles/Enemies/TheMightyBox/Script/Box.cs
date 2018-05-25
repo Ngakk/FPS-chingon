@@ -8,6 +8,7 @@ namespace Mangos{
 		Rigidbody rigi;
 		public float breakingPoint;
 		public float forceVariance;
+		bool alreadyPrayed = false;
 		// Use this for initialization
 		void Start () {
 			rigi = GetComponent<Rigidbody>();
@@ -28,6 +29,7 @@ namespace Mangos{
 				break;
 			case Weapon.axe:
 				rigi.AddForce((hitData.hitPos - hitData.shooterPos) * hitData.power, ForceMode.Impulse);
+				Break();
 				break;
 			default:
 				break;
@@ -44,7 +46,8 @@ namespace Mangos{
 		}
 		
 		public void Break(){
-			GetComponent<BoxCollider>().enabled = false;
+       
+            GetComponent<BoxCollider>().enabled = false;
 			
 			BoxCollider[] hijos = GetComponentsInChildren<BoxCollider>();
 			for(int i = 0; i < hijos.Length; i++)
@@ -55,8 +58,12 @@ namespace Mangos{
                 hijos[i].gameObject.AddComponent<Box1>();
 			}
 
-            gameObject.SetActive(false);
-            StaticManager.winBoxes.PrayForTheFallen();
+			if(!alreadyPrayed)
+				StaticManager.winBoxes.PrayForTheFallen();
+        		
+			alreadyPrayed = true;
+
+			Destroy(gameObject);
 		}
 	}
 }
