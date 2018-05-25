@@ -5,9 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class MenuScript : MonoBehaviour {
 
+	Animator anim;
 	// Use this for initialization
 	void Start () {
-		
+		anim = GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -17,6 +18,11 @@ public class MenuScript : MonoBehaviour {
 
 	public void LoadGame(int sceneStarter) {
 		SceneManager.LoadScene (sceneStarter);
+	}
+	
+	public void Options()
+	{
+		anim.SetTrigger("Options");
 	}
 
 	public void Quit () {

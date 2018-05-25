@@ -8,5 +8,18 @@ namespace Mangos {
 		void Awake(){
 			StaticManager.gameManager = this;
 		}
+		
+		public void LoadMainGame(){
+			
+		}
+		
+		public void ExitGame(){
+			
+		}
+		
+		public void LoadMenu(){
+			
+		}
+		
 	}
 }
